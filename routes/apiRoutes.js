@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const seed = require("../Develop/seeders/seed.js");
+const seed = require("../seeders/seed.js");
 const fs = require('fs');
   
 // seed.js post and get routes
