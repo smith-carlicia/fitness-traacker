@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const seed = require("../seeders/seed.js");
+const seed = require("../Develop/seeders/seed.js");
 const fs = require('fs');
   
 // seed.js post and get routes
@@ -15,7 +15,7 @@ const fs = require('fs');
   });
   
   router.get("/api/seed", (req, res) => {
-    Transaction.find({})
+    seed.find({})
       .sort({ date: -1 })
       .then(dbTransaction => {
         res.json(dbTransaction);
