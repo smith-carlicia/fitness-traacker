@@ -1,76 +1,53 @@
 const router = require("express").Router();
-const seed = require("../seeders/seed.js");
 const fs = require('fs');
-  
-// seed.js post and get routes
+const Workout = require('../models/Workout');
 
-  router.post("/api/seed", ({ body }, res) => {
-    seed.insertMany(body)
-      .then(dbTransaction => {
-        res.json(dbTransaction);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
-  
-  router.get("/api/seed", (req, res) => {
-    seed.find({})
-      .sort({ date: -1 })
-      .then(dbTransaction => {
-        res.json(dbTransaction);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
-  
-// exercise post and get routes
+// get last workout
 
-router.post("/api/exercise", ({ body }, res) => {
-    seed.insertMany(body)
-      .then(dbTransaction => {
-        res.json(dbTransaction);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
+router.get('/api/workouts', (req, res) => {
+    Workout.find({})
+    .then(workout => {
+        res.json(workout)
+    })
+    .fetch(err => {
+        res.json(err)
+    })
+});
 
-// index post and get routes
+// add exercise
 
-router.post("/api/index", ({ body }, res) => {
-    seed.insertMany(body)
-      .then(dbTransaction => {
-        res.json(dbTransaction);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
+router.put('/api/workouts/:id', ({body, params}, res) => {
 
-// stats post and get routes
+    const workoutId = params.id;
+    const addedExercises = [];
 
-router.post("/api/stats", ({ body }, res) => {
-    seed.insertMany(body)
-      .then(dbTransaction => {
-        res.json(dbTransaction);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
+    Workout.find({_id:workoutId})
+        .then(dbWorkout => {
+           
+        })
+});
 
-// workout post and get routes
+// create workout
 
-router.post("/api/workout", ({ body }, res) => {
-    seed.insertMany(body)
-      .then(dbTransaction => {
-        res.json(dbTransaction);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
+router.post('/api/workouts', (req, res) => {
+    Workout.create({})
+    .then(data => res.json(data))
+    .catch(err => {
+        console.log("err", err)
+        res.json(err)
+    })
+});
 
-  module.exports = router;
+// get workout in range
+
+router.get('/api/workout/range', (req, res) => {
+    Workout.find({})
+    .then(workout => {
+        res.json(workout)
+    })
+    .catch(err => {
+        res.json(err)
+    })
+});
+
+module.exports = router;
