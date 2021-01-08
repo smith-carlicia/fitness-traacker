@@ -16,7 +16,7 @@ router.get('/api/workouts', (req, res) => {
 
 // add exercise
 
-router.put('/api/workouts/:id', ({body, params}, res) => {
+router.put('/api/workouts/:id', ({params}, res) => {
 
     const workoutId = params.id;
     const addedExercises = [];
