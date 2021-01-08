@@ -9,7 +9,7 @@ router.get('/api/workouts', (req, res) => {
     .then(workout => {
         res.json(workout)
     })
-    .fetch(err => {
+    .catch(err => {
         res.json(err)
     })
 });
@@ -48,7 +48,7 @@ router.get('/api/workout/range', (req, res) => {
     .then(workout => {
         res.json(workout)
     })
-    .fetch(err => {
+    .catch(err => {
         res.json(err)
     })
 });

@@ -1,6 +1,6 @@
 // call express and mongoose packages
 const express = require("express");
-const mongooseDB = require("mongoose");
+const mongoose = require("mongoose");
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnessTracker"
 });
 
 // server routes
-app.use(require("./routes/api.js"));
+app.use(apiRoutes);
 app.use(htmlRoutes);
 
 app.listen(PORT, () => {
