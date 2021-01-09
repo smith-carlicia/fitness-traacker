@@ -1,26 +1,27 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "fitness-tracker",
   "version": "1.0.0",
-  "description": "fitnessTracker",
+  "description": "# Unit 17 NoSQL Homework: Workout Tracker",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js",
-    "seed": "node seeders/seed.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.3.16",
-    "morgan": "^1.9.1",
+    "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.7",
     "path": "^0.12.7"
   },
-  "engines": {
-    "node": "v12.19.0",
-    "npm": "6.14.8"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smith-carlicia/fitness-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smith-carlicia/fitness-tracker/issues"
+  },
+  "homepage": "https://github.com/smith-carlicia/fitness-tracker#readme"
 }
-
