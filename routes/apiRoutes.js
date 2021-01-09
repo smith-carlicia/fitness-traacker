@@ -18,8 +18,8 @@ router.get('/api/workouts', (req, res) => {
 
 router.put('/api/workouts/:id', ({body, params}, res) => {
 
-    const workoutId = params.id;
-    const addedExercises = [];
+    // const workoutId = params.id;
+    // const addedExercises = [];
 
     Workout.find(
         params.id,
