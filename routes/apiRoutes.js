@@ -26,8 +26,8 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
         { $push: { exercises: body } },
         { new: true, runValidators: true }
     )
-        .then(dbworkout => {
-            res.json(data)
+        .then(workoutID => {
+            res.json(workoutID)
         })
         .catch(err => {
             console.log("err", err)
@@ -39,7 +39,7 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
 
 router.post('/api/workouts', (req, res) => {
     Workout.create({})
-    .then(data => res.json(data))
+    .then(createdWorkouts => res.json(createdWorkouts))
     .catch(err => {
         console.log("err", err)
         res.json(err)
@@ -50,8 +50,8 @@ router.post('/api/workouts', (req, res) => {
 
 router.get('/api/workouts/range', ({}, res) => {
     Workout.find()
-    .then(workout => {
-        res.json(workout)
+    .then(workoutRange => {
+        res.json(workoutRange)
     })
     .catch(err => {
         res.json(err)
