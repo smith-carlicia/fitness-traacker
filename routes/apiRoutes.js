@@ -5,7 +5,7 @@ const Workout = require('../models/workout');
 // get last workout
 
 router.get('/api/workouts', (req, res) => {
-    Workout.find(req)
+    Workout.find({})
     .then(workout => {
         res.json(workout)
     })
