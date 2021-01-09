@@ -1,6 +1,7 @@
 // call express and mongoose packages
 const express = require("express");
 const mongoose = require("mongoose");
+const logger = require("morgan");
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 
@@ -10,6 +11,8 @@ const PORT = process.env.PORT || 50721;
 const app = express();
 
 // middleware
+app.use(logger("dev"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
