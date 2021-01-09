@@ -6,8 +6,8 @@ const Workout = require('../models/workout');
 
 router.get('/api/workouts', (req, res) => {
     Workout.find()
-    .then(workout => {
-        res.json(workout)
+    .then(workoutLast => {
+        res.json(workoutLast)
     })
     .catch(err => {
         res.json(err)
