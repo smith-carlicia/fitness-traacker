@@ -22,10 +22,11 @@ router.put('/api/workouts/:id', ({params}, res) => {
     const addedExercises = [];
 
     Workout.find({_id:workoutId})
-        .then(dbWorkout => {
+        .then(dbworkout => {
            req.params.id
         })
         .catch(err => {
+            console.log("err", err)
             res.json(err)
         })
 });
@@ -43,10 +44,10 @@ router.post('/api/workouts', (req, res) => {
 
 // get workout in range
 
-router.get('/api/workout/range', (req, res) => {
+router.get('/api/workout/range', ({}, res) => {
     Workout.find({})
-    .then(workout => {
-        res.json(workout)
+    .then(dbworkout => {
+        res.json(dbworkout)
     })
     .catch(err => {
         res.json(err)
