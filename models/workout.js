@@ -9,12 +9,12 @@ const WorkoutSchema = new Schema({
   },
 
   exercises: [{
-    type: String,
-    name: String,
-    duration: Number,
-    weight: Number,
-    reps: Number,
-    sets: Number,
+    type: {String},
+    name: {String},
+    duration: {Number},
+    weight: {Number},
+    reps: {Number},
+    sets: {Number},
   }],
 });
 
