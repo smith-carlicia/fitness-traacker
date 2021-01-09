@@ -26,8 +26,8 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
         { $push: { exercises: body } },
         { new: true, runValidators: true }
     )
-        .then(workoutID => {
-            res.json(workoutID)
+        .then(data => {
+            res.json(data)
         })
         .catch(err => {
             console.log("err", err)
@@ -49,7 +49,7 @@ router.post('/api/workouts', (req, res) => {
 // get workout in range
 
 router.get('/api/workouts/range', ({}, res) => {
-    Workout.find()
+    Workout.find({})
     .then(workoutRange => {
         res.json(workoutRange)
     })
