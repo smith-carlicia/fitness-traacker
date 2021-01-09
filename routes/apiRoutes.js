@@ -39,7 +39,7 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
 
 router.post('/api/workouts', (req, res) => {
     db.workouts.create()
-    .then(createWorkout => res.json(createWorkout))
+    .then(data => res.json(data))
     .catch(err => {
         console.log("err", err)
         res.json(err)
