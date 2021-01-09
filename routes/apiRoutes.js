@@ -49,7 +49,7 @@ router.post('/api/workouts', (req, res) => {
 // get workout in range
 
 router.get('/api/workouts/range', ({}, res) => {
-    Workout.find()
+    Workout.find({})
     .then(workout => {
         res.json(workout)
     })
