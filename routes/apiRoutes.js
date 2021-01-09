@@ -38,7 +38,7 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
 // create workout
 
 router.post('/api/workouts', (req, res) => {
-    Workout.create(data)
+    Workout.create({})
     .then(createWorkout => res.json(createWorkout))
     .catch(err => {
         console.log("err", err)
@@ -50,8 +50,8 @@ router.post('/api/workouts', (req, res) => {
 
 router.get('/api/workouts/range', ({}, res) => {
     Workout.find()
-    .then(workoutRange => {
-        res.json(workoutRange)
+    .then(data => {
+        res.json(data)
     })
     .catch(err => {
         res.json(err)
