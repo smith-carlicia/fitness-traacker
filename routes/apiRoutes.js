@@ -23,8 +23,8 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
 
     db.workouts.findByIdAndUpdate(
         params.id,
-        { $push: { exercises: body } },
-        { new: true, runValidators: true }
+        { $push: { exercises: body } }
+        // { new: true, runValidators: true }
     )
         .then(data => {
             res.json(data)
