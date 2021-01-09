@@ -22,9 +22,11 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
     // const addedExercises = [];
 
     db.workouts.findByIdAndUpdate(
-        params.id,
-        { $push: { exercises: body } }
+        // params.id,
+        // { $push: { exercises: body } }
         // { new: true, runValidators: true }
+        { _id: req.params.id }, 
+        { exercises: req.body }
     )
         .then(data => {
             res.json(data)
