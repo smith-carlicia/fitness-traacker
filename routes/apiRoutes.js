@@ -28,8 +28,8 @@ router.put('/api/workouts/:id', ( {body, params}, res) => {
         { _id: req.params.id }, 
         { exercises: req.body }
     )
-        .then(dbWorkouts => {
-            res.json(dbWorkouts)
+        .then(data => {
+            res.json(data)
         })
         .catch(err => {
             console.log("err", err)
