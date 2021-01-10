@@ -5,7 +5,7 @@ const db = require('../models/workout');
 // get last workout
 
 router.get('/api/workouts', (req, res) => {
-    db.find({})
+    db.find()
     .then(lastWorkout => {
         res.json(lastWorkout)
     })
