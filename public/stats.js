@@ -181,6 +181,8 @@ function populateChart(data) {
   });
 }
 
+console.log(populateChart);
+
 function calculateTotalWeight(data) {
   let totals = [];
 
