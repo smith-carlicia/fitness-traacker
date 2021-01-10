@@ -50,11 +50,14 @@ router.post('/api/workouts', (req, res) => {
 
 // get workout in range
 
-router.get('/api/workouts/range', (req, res) => {
-    db.find()
+router.get('/api/workouts/range/:id', (req, res) => {
+    db.aggregate(
+        {$addFields:{totalDuration:{$sum:"exercises.duration"}}}
+    )
+    .sort({_id:"5ffb554cad6884c"})
     .limit(7)
-    .then(data => {
-        res.json(data)
+    .then(workouts => {
+        res.json(workouts)
     })
     .catch(err => {
         res.json(err)
