@@ -5,40 +5,22 @@ const Schema = mongoose.Schema;
 const WorkoutSchema = new Schema({
   day: {
     type: Date,
-    default: Date.now
+    // `Date.now()` returns the current unix timestamp as a number
+    default: "01/01/2021"
   },
-
   exercises: [{
-      type: {
-        type: String,
-        trim: true,
-        required: true
-      },
-      name: {
-        type: String,
-        trim: true,
-        required: true
-      },
-      duration: {
-        type: Number,
-        required: true
-      },
-      weight: {
-        type: Number
-      },
-      reps: {
-        type: Number
-      },
-      sets: {
-        type: Number
-      },
-      distance: {
-        type: Number
-      }
-  }]
+    type: {type: String},
+    name: String,
+    duration: Number,
+    weight: Number,
+    reps: Number,
+    sets: Number,
+  }],
 },
- { toJSON: { virtual: true } },
+
+
 );
+
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
