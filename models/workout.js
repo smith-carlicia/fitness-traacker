@@ -16,7 +16,11 @@ const WorkoutSchema = new Schema({
     reps: Number,
     sets: Number,
   }],
-});
+},
+
+{ typeKey: '$type' }
+
+);
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 

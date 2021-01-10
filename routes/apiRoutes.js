@@ -22,11 +22,11 @@ router.put('/api/workouts/:id', ( {body, params}, res) => {
     // const addedExercises = [];
 
     db.findByIdAndUpdate(
-        // params.id,
-        // { $push: { exercises: body } }
-        // { new: true, runValidators: true }
-        { _id:params.id }, 
-        { exercises:body }
+        params.id,
+        { $push: { exercises: body } },
+        { new: true, runValidators: true }
+        // { _id:params.id }, 
+        // { exercises:body }
     )
         .then(data => {
             res.json(data)
@@ -35,14 +35,13 @@ router.put('/api/workouts/:id', ( {body, params}, res) => {
             console.log("err", err)
             res.json(err)
         })
-});
+    });
 
 // create workout
 // new workout
 router.post('/api/workouts', (req, res) => {
-    db.create()
+    db.create(req.body)
     .then(data => res.json(data))
-    console.log(req)
     .catch(err => {
         console.log("err", err)
         res.json(err)
